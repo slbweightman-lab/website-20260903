@@ -1,0 +1,359 @@
+/* Styling variables */
+:root {
+    --background-color: rgb(255, 255, 254);
+    --yap-bg-color: rgb(59, 59, 49);
+    --color-other-text: rgb(36, 43, 34);
+    --color-text: rgb(217, 217, 217);
+    --footer: rgba(45, 44, 41, 0.60);
+}
+
+/* Global reset and styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* base styles */
+html,
+body {
+    padding: 0;
+    margin: 0;
+
+    background: var(--yap-bg-color);
+    font-size: 20px;
+
+    font-family: sans-serif;
+
+    p {
+        font-family: Arial, Helvetica, sans-serif
+    }
+}
+
+/* Change the layout depending on the screen size */
+@media(max-width: 800px) {
+    footer {
+        background: "red";
+
+        & .row {
+            flex-direction: column;
+            padding: 20px 30px;
+        }
+
+        & .footer-col {
+            & ul {
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+
+            & input {
+                width: 100%;
+            }
+        }
+    }
+
+    .torn-paper.flex,
+    .torn-paper.flex.reverse {
+        flex-direction: column;
+
+        .about & img {
+            transform: rotate(0deg);
+            padding: 40px;
+        }
+    }
+}
+
+#header {
+    background: url('./Background/footerBackground.png');
+    /* Move page conte down a bit */
+    margin-bottom: 100px;
+    position: relative;
+
+    #nav {
+        & img {
+            position: absolute;
+            width: 100px;
+            height: auto;
+
+            /* Put page logo on the right or the the screen... */
+            top: 20px;
+            right: 67px;
+            margin-left: -100px;
+        }
+
+        #nav-buttons {
+            display: flex;
+            /* Lazy way to style nav menu */
+
+            & a {
+                display: block;
+                border-right: solid thin var(--yap-bg-color);
+                padding: 10px 30px;
+                margin: 10px 0;
+                color: #bab8b8;
+
+                &:last-of-type {
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+hr {
+    opacity: 0.7;
+    border: #b1a29a solid thin;
+    margin: 10px 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 100px;
+}
+
+.col {
+    color: aliceblue;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+    align-self: flex-end;
+
+
+}
+
+.signature {
+    width: 200px;
+    height: auto;
+    align-self: flex-end;
+}
+
+footer {
+    & .container {
+        background-color: var(--footer);
+    }
+}
+
+.form, .footer-col {
+    & ul {
+        list-style: none;
+
+        & li {
+            padding: 10px 0;
+            text-align: center;
+
+            & a {
+                color: var(--color-text);
+                text-decoration: none;
+                text-align: center;
+                font-size: 16px;
+                opacity: 0.7;
+                transition: 0.5s;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    & h3 {
+        color: var(--color-text);
+        margin-bottom: 25px;
+        font-size: 22px;
+        position: relative;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-decoration: underline;
+    }
+
+    & input {
+        border: none;
+        width: 300px;
+        height: 44px;
+        display: block;
+        padding-left: 20px;
+        margin: 4px;
+    }
+
+    & Textarea {
+        border: none;
+        width: 300px;
+        height: 44px;
+        display: block;
+        padding-left: 20px;
+        margin: 4px;
+        height: 100px;
+    }
+    
+    & .inputSubmit {
+        padding: 0px 20px;
+        background-color: var(--yap-bg-color);
+        border-radius: 5px;
+        border: none;
+        color: var(--color-text);
+    }
+}
+
+
+#page {
+    width: 100%;
+    max-width: 1000px;
+
+    min-height: 100vh;
+    margin: 0 auto;
+    /* Center page */
+    background: url('./Background/patternedBackground.png');
+    background-repeat: repeat;
+
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#about {
+    color: var(--yap-bg-color);
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 600px;
+    background: var(--color-text);
+    border-radius: 5px;
+
+    p {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    h3 {
+        margin-bottom: 0;
+        text-align: center;
+        text-decoration: underline;
+    }
+
+}
+
+.flex {
+    display: flex;
+    gap: 35px;
+
+    .about & {
+        gap: 40px;
+    }
+
+    img {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .about & img {
+        transform: rotate(-20deg);
+        padding: 40px;
+    }
+
+    /* reverse content flow (ie left/right) */
+    &.reverse {
+        flex-direction: row-reverse;
+
+        .about & img {
+            transform: rotate(20deg);
+            padding: 40px;
+        }
+    }
+}
+
+.torn-paper {
+    border-image: url('./Background/tournpaperSliced.png');
+    border-image-slice: 10% fill;
+    border-image-width: 30px 48px;
+    padding: 48px;
+    margin: 50px 20px;
+
+    .about & {
+        padding: 80px 48px;
+        margin: 100px 20px;
+    }
+
+    .photo {
+        flex: 1 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .yap {
+        flex: 1 0;
+        color: var(--color-text);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+
+        & a_ {
+            color: white;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    }
+}
+
+
+.gallery {
+    .title {
+        width: 100%;
+        padding: 10px;
+        margin: 40px 0;
+        text-align: center;
+
+        background: white;
+    }
+
+    .box {
+        margin: 5px;
+
+        img {
+            padding: 0;
+        }
+
+        .text {
+            text-align: center;
+            color: rgb(--yap-bg-color);
+            margin: 20px 0;
+            padding: 10px 0;
+
+            background: white;
+            border-radius: 5px;
+
+            h3 {
+                margin: 0;
+                font-size: 1.4rem;
+            }
+        }
+    }
+}
+
+.contact {
+
+}
